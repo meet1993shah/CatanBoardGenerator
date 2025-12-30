@@ -1,15 +1,16 @@
 :root {
-    --forest: #2e7d32; --hills: #d84315; --mountains: #78909c;
-    --fields: #fbc02d; --pasture: #7cb342; --desert: #efebe9;
+    --forest: #1b5e20; --hills: #bf360c; --mountains: #455a64;
+    --fields: #fbc02d; --pasture: #689f38; --desert: #d7ccc8;
 }
 
-body { background: #222; color: white; font-family: sans-serif; text-align: center; }
-.controls { background: #333; padding: 20px; display: inline-block; border-radius: 10px; margin-bottom: 20px; }
-.group { margin: 10px 0; display: flex; flex-direction: column; align-items: flex-start; }
-button { width: 100%; padding: 10px; background: orange; border: none; cursor: pointer; font-weight: bold; }
+body { background: #121212; color: white; font-family: system-ui; text-align: center; }
+.controls { background: #222; padding: 20px; border-radius: 15px; display: inline-block; margin-bottom: 20px; text-align: left;}
+.section { margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 10px; }
+.section span { display: block; font-weight: bold; color: orange; margin-bottom: 5px; font-size: 12px; }
+button { width: 100%; padding: 12px; background: #e67e22; border: none; color: white; border-radius: 5px; cursor: pointer; }
 
 #board { display: flex; flex-direction: column; align-items: center; }
-.row { display: flex; justify-content: center; margin-bottom: -25px; }
+.row { display: flex; justify-content: center; margin-bottom: -28px; }
 
 .hex {
     width: 100px; height: 110px; margin: 0 2px;
@@ -24,5 +25,8 @@ button { width: 100%; padding: 10px; background: orange; border: none; cursor: p
 .pasture { background: var(--pasture); color: black; }
 .desert { background: var(--desert); color: black; }
 
-.num { background: white; color: black; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-.red { color: red; }
+.token { 
+    background: #fdf5e6; color: black; border-radius: 50%; width: 32px; height: 32px; 
+    display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;
+}
+.red { color: #d32f2f; font-size: 18px; }

@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Catan Board Generator</title>
+    <title>Catan Backtracking Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="app">
         <h1>Catan Board Generator</h1>
         <div class="controls">
-            <div class="group">
-                <label><input type="radio" name="mode" value="base" checked> Base (19 Tiles)</label>
-                <label><input type="radio" name="mode" value="exp"> Expansion (30 Tiles)</label>
+            <div class="section">
+                <span>Layout</span>
+                <input type="radio" name="mode" id="b" value="base" checked><label for="b">Base</label>
+                <input type="radio" name="mode" id="e" value="exp"><label for="e">Expansion</label>
             </div>
-            <div class="group">
-                <label><input type="checkbox" id="res"> No Same Resource Touching</label>
-                <label><input type="checkbox" id="red"> No 6 & 8 Touching</label>
-                <label><input type="checkbox" id="same"> No Same Numbers Touching</label>
+            <div class="section">
+                <span>Rules</span>
+                <label><input type="checkbox" id="res"> Same Resources Can't Touch</label>
+                <label><input type="checkbox" id="red"> 6 & 8 Can't Touch</label>
+                <label><input type="checkbox" id="same"> Same Numbers Can't Touch</label>
                 <label><input type="checkbox" id="center"> Desert in Center</label>
             </div>
             <button onclick="generate()">Generate Board</button>
