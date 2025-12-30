@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Catan Board Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -25,7 +25,10 @@
             </div>
             <button onclick="generate()">Generate Board</button>
         </div>
-        <div id="board"></div>
+
+        <div id="board-wrapper">
+            <div id="board"></div>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

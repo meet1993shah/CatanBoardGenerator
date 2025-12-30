@@ -1,21 +1,111 @@
 :root {
     --forest: #1b5e20; --hills: #bf360c; --mountains: #455a64;
     --fields: #fbc02d; --pasture: #689f38; --desert: #d7ccc8;
+    
+    /* Desktop Default Sizes */
+    --hex-w: 100px;
+    --hex-h: 110px;
+    --row-margin: -28px;
+    --token-size: 40px;
+    --font-num: 16px;
+    --font-pips: 18px;
 }
 
-body { background: #121212; color: white; font-family: system-ui; text-align: center; }
-.controls { background: #222; padding: 20px; border-radius: 15px; display: inline-block; margin-bottom: 20px; text-align: left;}
-.section { margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 10px; }
-.section span { display: block; font-weight: bold; color: orange; margin-bottom: 5px; font-size: 12px; }
-button { width: 100%; padding: 12px; background: #e67e22; border: none; color: white; border-radius: 5px; cursor: pointer; }
+/* Mobile Scaling for Android/iPhone (Screens smaller than 600px) */
+@media (max-width: 600px) {
+    :root {
+        --hex-w: 65px;
+        --hex-h: 72px;
+        --row-margin: -18px;
+        --token-size: 28px;
+        --font-num: 12px;
+        --font-pips: 12px;
+    }
+    
+    .controls {
+        width: 90%; /* Make controls take full width on mobile */
+        box-sizing: border-box;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}
 
-#board { display: flex; flex-direction: column; align-items: center; }
-.row { display: flex; justify-content: center; margin-bottom: -28px; }
+body { 
+    background: #121212; 
+    color: white; 
+    font-family: system-ui; 
+    text-align: center; 
+    margin: 0; 
+    padding: 10px; 
+}
+
+.controls { 
+    background: #222; 
+    padding: 20px; 
+    border-radius: 15px; 
+    display: inline-block; 
+    margin-bottom: 20px; 
+    text-align: left;
+}
+
+.section { 
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #444; 
+    padding-bottom: 10px; 
+}
+
+.section span { 
+    display: block; 
+    font-weight: bold; 
+    color: orange; 
+    margin-bottom: 5px; 
+    font-size: 12px; 
+}
+
+button { 
+    width: 100%; 
+    padding: 12px; 
+    background: #e67e22; 
+    border: none; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; /* Larger hit area for thumbs */
+}
+
+/* Wrapper to allow horizontal scrolling if the screen is EXTREMELY narrow */
+#board-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+#board { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    min-width: fit-content; 
+}
+
+.row { 
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: var(--row-margin); 
+}
 
 .hex {
-    width: 100px; height: 110px; margin: 0 2px;
+    width: var(--hex-w); 
+    height: var(--hex-h); 
+    margin: 0 1px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
 }
 
 .forest { background: var(--forest); }
@@ -25,13 +115,12 @@ button { width: 100%; padding: 12px; background: #e67e22; border: none; color: w
 .pasture { background: var(--pasture); color: black; }
 .desert { background: var(--desert); color: black; }
 
-/* Updated Token Styling */
 .token { 
     background: #fdf5e6; 
     color: black; 
     border-radius: 50%; 
-    width: 40px; 
-    height: 40px; 
+    width: var(--token-size); 
+    height: var(--token-size); 
     display: flex; 
     flex-direction: column;
     align-items: center; 
@@ -42,16 +131,15 @@ button { width: 100%; padding: 12px; background: #e67e22; border: none; color: w
 }
 
 .token span {
-    font-size: 16px;
+    font-size: var(--font-num);
     margin-top: 2px;
 }
 
 .red { color: #d32f2f; }
 .red span { font-weight: 900; }
 
-/* New Pips Styling */
 .pips {
-    font-size: 18px;
+    font-size: var(--font-pips);
     letter-spacing: 1px;
     height: 10px;
     line-height: 5px;
