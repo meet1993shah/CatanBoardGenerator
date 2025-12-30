@@ -13,8 +13,8 @@
         <div class="controls">
             <div class="section">
                 <span>Layout</span>
-                <input type="radio" name="mode" id="b" value="base" checked><label for="b">Base</label>
-                <input type="radio" name="mode" id="e" value="exp"><label for="e">Expansion</label>
+                <label><input type="radio" name="mode" id="b" value="base" checked> Base (19 Tiles)</label>
+                <label><input type="radio" name="mode" id="e" value="exp"> Expansion (30 Tiles)</label>
             </div>
             <div class="section">
                 <span>Rules</span>
@@ -25,7 +25,7 @@
             </div>
             <button onclick="generate()">Generate Board</button>
         </div>
-
+        
         <div id="board-wrapper">
             <div id="board"></div>
         </div>
