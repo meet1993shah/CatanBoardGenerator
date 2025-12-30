@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catan Board Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Catan Map Generator</h1>
+        
+        <div class="controls">
+            <div class="mode-switch">
+                <label><input type="radio" name="mode" value="base" checked> Base (3-4 players)</label>
+                <label><input type="radio" name="mode" value="exp"> Expansion (5-6 players)</label>
+            </div>
+            <hr>
+            <label><input type="checkbox" id="no-adj-res"> No same resource touching</label>
+            <label><input type="checkbox" id="no-adj-red"> No 6 & 8 touching</label>
+            <label><input type="checkbox" id="no-same-nums"> No same numbers touching</label>
+            <button id="gen-btn">Generate Board</button>
+        </div>
+
+        <div id="board"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
