@@ -10,22 +10,29 @@
 <body>
     <div class="app">
         <h1>Catan Board Generator</h1>
-        <div class="controls">
-            <div class="section">
-                <span>Layout</span>
-                <label><input type="radio" name="mode" id="b" value="base" checked> Base (19 Tiles)</label>
-                <label><input type="radio" name="mode" id="e" value="exp"> Expansion (30 Tiles)</label>
-            </div>
-            <div class="section">
-                <span>Rules</span>
-                <label><input type="checkbox" id="res"> Same Resources Can't Touch</label>
-                <label><input type="checkbox" id="red"> 6 & 8 Can't Touch</label>
-                <label><input type="checkbox" id="same"> Same Numbers Can't Touch</label>
-                <label><input type="checkbox" id="center"> Desert in Center</label>
-            </div>
-            <button onclick="generate()">Generate Board</button>
-        </div>
         
+        <div class="controls-container">
+            <div class="section">
+                <span class="section-title">Layout</span>
+                <div class="horizontal-options">
+                    <label><input type="radio" name="mode" id="b" value="base" checked> Base (19 Tiles)</label>
+                    <label><input type="radio" name="mode" id="e" value="exp"> Expansion (30 Tiles)</label>
+                </div>
+            </div>
+            
+            <div class="section">
+                <span class="section-title">Rules</span>
+                <div class="vertical-options">
+                    <label><input type="checkbox" id="res"> Same Resources Can't Touch</label>
+                    <label><input type="checkbox" id="red"> 6 & 8 Can't Touch</label>
+                    <label><input type="checkbox" id="same"> Same Numbers Can't Touch</label>
+                    <label><input type="checkbox" id="center"> Desert in Center</label>
+                </div>
+            </div>
+            
+            <button id="gen-btn" onclick="generate()">Generate Board</button>
+        </div>
+
         <div id="board-wrapper">
             <div id="board"></div>
         </div>
