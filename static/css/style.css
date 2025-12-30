@@ -1,45 +1,28 @@
 :root {
     --forest: #2e7d32; --hills: #d84315; --mountains: #78909c;
     --fields: #fbc02d; --pasture: #7cb342; --desert: #efebe9;
-    --hex-w: 80px; /* Scaled down slightly for expansion */
 }
 
-body { background: #222; color: #fff; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
-.wrapper { text-align: center; max-width: 900px; }
-
-.controls {
-    background: #333; padding: 15px; border-radius: 8px;
-    display: inline-block; text-align: left; margin-bottom: 20px;
-}
-
-.controls label { display: block; margin: 5px 0; cursor: pointer; }
-
-button {
-    margin-top: 10px; width: 100%; padding: 10px;
-    background: #e67e22; border: none; color: #fff; font-weight: bold; cursor: pointer;
-}
+body { background: #222; color: white; font-family: sans-serif; text-align: center; }
+.controls { background: #333; padding: 20px; display: inline-block; border-radius: 10px; margin-bottom: 20px; }
+.group { margin: 10px 0; display: flex; flex-direction: column; align-items: flex-start; }
+button { width: 100%; padding: 10px; background: orange; border: none; cursor: pointer; font-weight: bold; }
 
 #board { display: flex; flex-direction: column; align-items: center; }
-.row { display: flex; justify-content: center; margin-bottom: -22px; }
+.row { display: flex; justify-content: center; margin-bottom: -25px; }
 
 .hex {
-    width: var(--hex-w); height: 90px; margin: 0 2px;
+    width: 100px; height: 110px; margin: 0 2px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex; justify-content: center; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
 
 .forest { background: var(--forest); }
 .hills { background: var(--hills); }
 .mountains { background: var(--mountains); }
-.fields { background: var(--fields); color: #000; }
-.pasture { background: var(--pasture); color: #000; }
-.desert { background: var(--desert); color: #000; }
+.fields { background: var(--fields); color: black; }
+.pasture { background: var(--pasture); color: black; }
+.desert { background: var(--desert); color: black; }
 
-.num-circle {
-    background: #fdf5e6; color: #000; width: 30px; height: 30px;
-    border-radius: 50%; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; font-size: 14px;
-}
-
-.red-num { color: #e74c3c; font-weight: bold; }
-.pips { font-size: 8px; line-height: 2px; }
+.num { background: white; color: black; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.red { color: red; }
