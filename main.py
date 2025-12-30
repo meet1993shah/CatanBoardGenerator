@@ -54,7 +54,7 @@ def solve_backtrack(idx, board, resources, numbers, neighbors, config):
     for res in available_res:
         # Check Desert Center Constraint
         if config['center_desert']:
-            center_indices = [14, 15] if config['is_exp'] else [9]
+            center_indices = [13, 16] if config['is_exp'] else [9]
             if (idx in center_indices and res != 'desert') or (idx not in center_indices and res == 'desert' and resources.count('desert') == (2 if config['is_exp'] and idx < 14 else 1)):
                 continue
 

@@ -1,3 +1,15 @@
+function getPips(num) {
+    // Catan probability: number of ways to roll the value with 2d6
+    const pipCount = {
+        2: 1, 12: 1,
+        3: 2, 11: 2,
+        4: 3, 10: 3,
+        5: 4, 9: 4,
+        6: 5, 8: 5
+    };
+    return ".".repeat(pipCount[num] || 0);
+}
+
 function generate() {
     const isExp = document.querySelector('input[name="mode"]:checked').value === 'exp';
     const query = new URLSearchParams({
@@ -23,10 +35,22 @@ function generate() {
                     const tile = data[i++];
                     const h = document.createElement('div');
                     h.className = `hex ${tile.resource}`;
+                    
                     if(tile.number) {
                         const t = document.createElement('div');
                         t.className = `token ${[6,8].includes(tile.number) ? 'red' : ''}`;
-                        t.innerText = tile.number;
+                        
+                        // Create Number Span
+                        const nSpan = document.createElement('span');
+                        nSpan.innerText = tile.number;
+                        
+                        // Create Pips Div
+                        const pDiv = document.createElement('div');
+                        pDiv.className = 'pips';
+                        pDiv.innerText = getPips(tile.number);
+                        
+                        t.appendChild(nSpan);
+                        t.appendChild(pDiv);
                         h.appendChild(t);
                     }
                     row.appendChild(h);
