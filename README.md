@@ -13,7 +13,7 @@ A Flask-based web and Android application that generates board for the Catan gam
 
 ## Demo
 
-![](demo/demo.gif)
+![](demo/demo.mov)
 
 ## Android APP
 
