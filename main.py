@@ -1,7 +1,9 @@
 from flask import Flask, render_template, jsonify, request
 import random
+import platform
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 # Official Catan Component Pools
 BASE_RES = (['forest']*4 + ['hills']*3 + ['mountains']*3 + ['fields']*4 + ['pasture']*4 + ['desert']*1)
@@ -122,4 +124,12 @@ def generate():
     return jsonify({"error": "No valid board exists for these rules"}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    # Android/Buildozer specific startup
+    if platform.system() == 'Android':
+        from android.permissions import Permission, request_permissions
+        # INTERNET is the primary requirement; WAKE_LOCK prevents sleep during video
+        request_permissions([Permission.INTERNET, Permission.WAKE_LOCK])
+    
+    # 0.0.0.0 allows access from other devices on the same network
+    # threaded=True is required to handle background HLS.js segment requests
+    app.run(debug=False, port=8080, threaded=True)
